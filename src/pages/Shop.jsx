@@ -41,19 +41,19 @@ const products = [
 
 export default function Shop(){
   return (
-    <main className="min-h-screen bg-gray-50 p-8">
+    <main className="min-h-screen bg-offWhite p-8">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold mb-6">Shop — Coming Soon</h2>
-        <p className="text-sm text-gray-600 mb-6">This is a placeholder shop. We will connect payments and checkout later.</p>
+        <h2 className="text-3xl font-playfair mb-6">Shop — Coming Soon</h2>
+        <p className="text-sm text-gray-600 mb-6">This is a placeholder shop. We will connect payments later.</p>
         <div className="grid md:grid-cols-3 gap-6">
           {products.map(p => (
-            <article key={p.id} className="bg-white rounded-lg shadow-sm p-4">
-              <div className="h-56 bg-gray-200 rounded-lg flex items-center justify-center mb-4">Image</div>
-              <h3 className="font-semibold">{p.name}</h3>
+            <article key={p.id} className="bg-white rounded-lg shadow-sm p-4 border border-[#E8E8E8]">
+              <div className="h-56 bg-gray-100 rounded-lg mb-4 flex items-center justify-center">Image</div>
+              <h3 className="font-playfair">{p.name}</h3>
               <p className="text-sm text-gray-600 mt-1">{p.desc}</p>
               <div className="mt-4 flex items-center justify-between">
                 <div className="text-lg font-bold">₦{p.price.toLocaleString()}</div>
-                <button className="px-4 py-2 bg-indigoGradientStart text-white rounded">Shop Now</button>
+                <button className="px-4 py-2 bg-gold text-black rounded">Shop Now</button>
               </div>
             </article>
           ))}

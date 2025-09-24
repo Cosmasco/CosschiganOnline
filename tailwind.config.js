@@ -6,9 +6,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        indigoGradientStart: '#4f46e5',
-        tealGradientEnd: '#14b8a6',
-        goldAccent: '#d4af37'
+        primaryBlack: '#0D0D0D',
+        goldAccent: '#D4AF37',
+        offWhite: '#F5F5F5',
+        burgundy: '#800020'
       }
     },
   },
