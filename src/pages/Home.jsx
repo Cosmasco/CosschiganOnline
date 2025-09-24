@@ -4,7 +4,7 @@ export default function Home(){
   return (
     <main className="min-h-screen bg-offWhite">
       <section className="relative">
-        <img src="/public/hero.jpg" alt="Hero" className="w-full h-[60vh] object-cover brightness-50"/>
+        <img src="/hero.jpg" alt="Hero" className="w-full h-[60vh] object-cover brightness-50"/>
         <div className="absolute inset-0 flex items-center justify-start max-w-6xl mx-auto p-8">
           <div className="text-white max-w-xl">
             <h1 className="text-5xl font-playfair mb-4">Cosschigan</h1>
