@@ -1,41 +1,49 @@
-import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import "./Navbar.css"; // custom css for luxury font
 
-function Navbar() {
+export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <nav className="w-full bg-white shadow-md">
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
-        {/* Logo + brand */}
+    <nav className="bg-white shadow-md fixed w-full top-0 left-0 z-50">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        
+        {/* Logo + Name */}
         <Link to="/" className="flex items-center space-x-2">
           <img
-            src="/logo.png" // Replace with actual logo file in public/
+            src="/logo.png"  // make sure your logo file is inside public/ and named logo.png
             alt="Cosschigan Logo"
-            className="h-10 w-auto"
+            className="h-10"
           />
-          <span className="brand-text text-2xl font-bold">Cosschigan</span>
+          <span className="font-bold text-xl text-gray-800">Cosschigan</span>
         </Link>
 
-        {/* Links */}
-        <div className="hidden md:flex space-x-6 items-center">
-          <Link to="/" className="hover:text-gray-700">
-            Home
-          </Link>
-          <Link to="/about" className="hover:text-gray-700">
-            About
-          </Link>
-          <Link to="/shop" className="hover:text-gray-700">
-            Shop
-          </Link>
-          <Link to="/contact">
-            <button className="px-4 py-2 rounded-lg bg-gradient-to-r from-yellow-500 to-yellow-700 text-white font-semibold shadow-md hover:from-yellow-600 hover:to-yellow-800 transition">
-              Contact
-            </button>
-          </Link>
+        {/* Desktop Menu */}
+        <div className="hidden md:flex space-x-8 text-gray-700 font-medium">
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+          <Link to="/shop">Shop</Link>
+          <Link to="/contact">Contact</Link>
         </div>
+
+        {/* Mobile Toggle */}
+        <button
+          className="md:hidden text-2xl"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          ☰
+        </button>
       </div>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="md:hidden bg-white shadow-lg flex flex-col items-start px-6 py-4 space-y-4">
+          <Link to="/" onClick={() => setIsOpen(false)}>Home</Link>
+          <Link to="/about" onClick={() => setIsOpen(false)}>About</Link>
+          <Link to="/shop" onClick={() => setIsOpen(false)}>Shop</Link>
+          <Link to="/contact" onClick={() => setIsOpen(false)}>Contact</Link>
+        </div>
+      )}
     </nav>
   );
-}
-
-export default Navbar;
+          }
