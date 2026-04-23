@@ -45,9 +45,19 @@
             width: 100%;
         }
         
-        .card-hover:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        .project-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+        }
+        
+        .project-img {
+            height: 280px;
+            object-fit: cover;
+            width: 100%;
         }
     </style>
 </head>
@@ -55,12 +65,10 @@
     <!-- NAVBAR -->
     <nav class="bg-[#0f172a] text-white sticky top-0 z-50 shadow-lg">
         <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-            <!-- Logo -->
             <div class="flex items-center gap-3">
                 <img src="logo.png" alt="Cosschigan Construction LTD" class="h-12 w-auto">
             </div>
 
-            <!-- Desktop Menu -->
             <div class="hidden md:flex items-center gap-8 text-sm font-medium">
                 <a href="#home" class="nav-link">Home</a>
                 <a href="#about" class="nav-link">About Us</a>
@@ -69,20 +77,15 @@
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
 
-            <div class="flex items-center gap-4">
-                <a href="#contact" 
-                   class="px-6 py-3 bg-[#f59e0b] hover:bg-amber-400 text-[#0f172a] font-semibold rounded-2xl flex items-center gap-2 text-sm">
-                    <i class="fa-solid fa-phone"></i>
-                    GET A QUOTE
-                </a>
-                
-                <button onclick="toggleMobileMenu()" class="md:hidden w-11 h-11 flex items-center justify-center text-2xl">
-                    <i id="mobile-icon" class="fa-solid fa-bars"></i>
-                </button>
-            </div>
+            <a href="#contact" class="px-6 py-3 bg-[#f59e0b] hover:bg-amber-400 text-[#0f172a] font-semibold rounded-2xl flex items-center gap-2 text-sm">
+                <i class="fa-solid fa-phone"></i> GET A QUOTE
+            </a>
+            
+            <button onclick="toggleMobileMenu()" class="md:hidden w-11 h-11 flex items-center justify-center text-2xl">
+                <i id="mobile-icon" class="fa-solid fa-bars"></i>
+            </button>
         </div>
 
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-[#0f172a] border-t border-slate-700 px-6 py-4">
             <div class="flex flex-col gap-4 text-sm font-medium">
                 <a href="#home" onclick="toggleMobileMenu()" class="py-2">Home</a>
@@ -112,14 +115,11 @@
                 </p>
                 
                 <div class="mt-10 flex flex-wrap gap-4">
-                    <a href="#contact" 
-                       class="px-8 py-5 bg-[#f59e0b] hover:bg-amber-400 text-[#0f172a] text-lg font-semibold rounded-3xl flex items-center gap-3 group">
+                    <a href="#contact" class="px-8 py-5 bg-[#f59e0b] hover:bg-amber-400 text-[#0f172a] text-lg font-semibold rounded-3xl flex items-center gap-3 group">
                         START YOUR PROJECT
                         <i class="fa-solid fa-arrow-right group-active:rotate-45"></i>
                     </a>
-                    
-                    <a href="#projects" 
-                       class="px-8 py-5 border-2 border-white hover:bg-white hover:text-[#0f172a] text-lg font-medium rounded-3xl flex items-center gap-3">
+                    <a href="#projects" class="px-8 py-5 border-2 border-white hover:bg-white hover:text-[#0f172a] text-lg font-medium rounded-3xl flex items-center gap-3">
                         VIEW OUR WORK
                     </a>
                 </div>
@@ -155,9 +155,7 @@
                 </div>
                 
                 <div class="md:col-span-5 relative">
-                    <img src="https://picsum.photos/id/1016/800/900" 
-                         alt="Cosschigan team on site"
-                         class="rounded-3xl shadow-2xl w-full">
+                    <img src="https://picsum.photos/id/1016/800/900" alt="Cosschigan team on site" class="rounded-3xl shadow-2xl w-full">
                 </div>
             </div>
         </div>
@@ -211,7 +209,7 @@
         </div>
     </section>
 
-    <!-- PROJECTS -->
+    <!-- PROJECTS - With Relative Paths -->
     <section id="projects" class="py-24 bg-[#0f172a] text-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex justify-between items-end mb-12">
@@ -221,30 +219,49 @@
                 </div>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="group rounded-3xl overflow-hidden bg-slate-900">
-                    <img src="https://picsum.photos/id/1015/600/400" alt="Luxury Estate" class="w-full h-64 object-cover group-hover:scale-105">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Residential 1 -->
+                <div class="project-card group rounded-3xl overflow-hidden bg-slate-900">
+                    <img src="images/residential1.jpg" 
+                         alt="Waterfront Luxury Villas" 
+                         class="project-img"
+                         onerror="this.src='https://picsum.photos/id/1015/800/600'; this.alt='Placeholder - replace with residential1.jpg';">
                     <div class="p-6">
                         <p class="text-[#f59e0b] text-xs">PORT HARCOURT • 2025</p>
-                        <h4 class="font-semibold text-xl mt-2">Luxury Waterfront Estate</h4>
+                        <h4 class="font-semibold text-xl mt-2">Waterfront Luxury Villas</h4>
+                        <p class="text-slate-400 text-sm mt-1">High-end residential estate</p>
                     </div>
                 </div>
-                
-                <div class="group rounded-3xl overflow-hidden bg-slate-900">
-                    <img src="https://picsum.photos/id/870/600/400" alt="Commercial Tower" class="w-full h-64 object-cover group-hover:scale-105">
+
+                <!-- Residential 2 -->
+                <div class="project-card group rounded-3xl overflow-hidden bg-slate-900">
+                    <img src="images/residential2.jpg" 
+                         alt="Palm Grove Estate" 
+                         class="project-img"
+                         onerror="this.src='https://picsum.photos/id/133/800/600'; this.alt='Placeholder - replace with residential2.jpg';">
                     <div class="p-6">
                         <p class="text-[#f59e0b] text-xs">PORT HARCOURT • 2025</p>
-                        <h4 class="font-semibold text-xl mt-2">Corporate Office Tower</h4>
+                        <h4 class="font-semibold text-xl mt-2">Palm Grove Estate</h4>
+                        <p class="text-slate-400 text-sm mt-1">Modern residential community</p>
                     </div>
                 </div>
-                
-                <div class="group rounded-3xl overflow-hidden bg-slate-900">
-                    <img src="https://picsum.photos/id/201/600/400" alt="Infrastructure" class="w-full h-64 object-cover group-hover:scale-105">
+
+                <!-- Office Building -->
+                <div class="project-card group rounded-3xl overflow-hidden bg-slate-900">
+                    <img src="images/office.jpg" 
+                         alt="Trans Amadi Corporate Tower" 
+                         class="project-img"
+                         onerror="this.src='https://picsum.photos/id/870/800/600'; this.alt='Placeholder - replace with office.jpg';">
                     <div class="p-6">
-                        <p class="text-[#f59e0b] text-xs">RIVERS STATE • 2025</p>
-                        <h4 class="font-semibold text-xl mt-2">Major Road & Bridge Project</h4>
+                        <p class="text-[#f59e0b] text-xs">PORT HARCOURT • 2025</p>
+                        <h4 class="font-semibold text-xl mt-2">Trans Amadi Corporate Tower</h4>
+                        <p class="text-slate-400 text-sm mt-1">Premium office complex</p>
                     </div>
                 </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <p class="text-slate-400 text-sm">Want to see more? <span class="text-[#f59e0b] cursor-pointer hover:underline" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">Send us a message</span> for full portfolio.</p>
             </div>
         </div>
     </section>
@@ -275,7 +292,6 @@
                     </div>
                 </div>
                 
-                <!-- Netlify Form -->
                 <form name="contact" method="POST" data-netlify="true" class="space-y-8">
                     <div class="grid grid-cols-2 gap-6">
                         <div>
@@ -297,7 +313,7 @@
                         <label class="block text-sm font-medium mb-2">Project Type</label>
                         <select name="project-type" class="w-full px-6 py-5 border border-slate-200 rounded-3xl focus:outline-none focus:border-[#f59e0b]">
                             <option>Residential</option>
-                            <option>Commercial</option>
+                            <option>Commercial / Office</option>
                             <option>Infrastructure</option>
                             <option>Renovation</option>
                             <option>Other</option>
@@ -349,24 +365,4 @@
     <script>
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu')
-            const icon = document.getElementById('mobile-icon')
-            
-            if (menu.classList.contains('hidden')) {
-                menu.classList.remove('hidden')
-                icon.classList.replace('fa-bars', 'fa-xmark')
-            } else {
-                menu.classList.add('hidden')
-                icon.classList.replace('fa-xmark', 'fa-bars')
-            }
-        }
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault()
-                const target = document.querySelector(this.getAttribute('href'))
-                if (target) target.scrollIntoView({ behavior: 'smooth' })
-            })
-        })
-    </script>
-</body>
-</html>
+            const icon = document.getE
